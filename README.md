@@ -15,10 +15,13 @@ Para rodar a aplicação basta executar o seguinte comando:
 mvn spring-boot:run -Dspring-boot.run.jvmArguments="-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=5005 -javaagent:target/opentelemetry-javaagent.jar -Dotel.exporter.otlp.endpoint=http://localhost:4318 -Dotel.metrics.exporter=none -Dotel.logs.exporter=none -Dotel.resource.attributes=service.name=spring-demo,service.version=1.0.0"
 ```
 
+>[!IMPORTANT]
+> É necessário alterar o caminho do OpenTelemetry Java Agent. Para isso, atltere o valor da flag `-javaagent` para `-javaagent:path/to/javaagent.jar`.
+
 > [!TIP]
 > Você pode alterar o endereço para onde as métricas, logs e traces são enviados. Basta modificar o atributo `-Dotel.exporter.otlp.endpoint=http://localhost:4318` do comando a cima.
 >
-> Por padrão, logs e traces não são enviados. Para enviar esses dados, basta remover os atributos `-Dotel.metrics.exporter=none` e `-Dotel.logs.exporter=none`
+> Por padrão, logs e traces não são enviados. Para enviar esses dados, basta remover os atributos `-Dotel.metrics.exporter=none` e `-Dotel.logs.exporter=none`.
 
 ## Rotas
 
